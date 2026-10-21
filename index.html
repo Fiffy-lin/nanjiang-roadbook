@@ -1275,8 +1275,8 @@ function openSheet(type){
   }
 else{
   const budgetRows=budget.filter(b=>b.n!=='合计');
-  const moneyVal=function(v){ // '¥4500-6200'→5350、'约¥1.10w-1.55w'→13250、'¥224'→224（区间取中值，合计行不计）
-    const s=String(v);
+  const moneyVal=function(v){ // '¥4500-6200'→5350、'约¥1.10w-1.55w'→13250、'¥224'→224（区间取中值，合计行不计；先剥千分位逗号）
+    const s=String(v).replace(/[,，]/g,'');
     const unit=/w/i.test(s)?10000:1;
     const m=s.match(/(\d+(?:\.\d+)?)\s*w?\s*[-–—~至到]\s*(\d+(?:\.\d+)?)\s*w?/i);
     if(m)return Math.round((parseFloat(m[1])+parseFloat(m[2]))/2*unit);
