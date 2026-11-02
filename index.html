@@ -845,7 +845,7 @@ h3{font-size:13px;font-weight:700;letter-spacing:0}
   #map{min-height:500px!important}
 }
 </style>
-<script src="data.js"></script>
+<script src="data.js?v=20261103a"></script>
 </head>
 <body class="min-h-screen">
 
@@ -1251,7 +1251,7 @@ function switchView(i){
   window.scrollTo({top:0,behavior:'smooth'});
   updateFloatToday();
 }
-function switchTab(i){if(i===activeTab&&activeView===0)return;activeTab=i;if(activeView===0)document.getElementById('mainContent').innerHTML=rTrip();else switchView(0);updateFloatToday();}
+function switchTab(i){if(i===activeTab&&activeView===0)return;activeTab=i;if(activeView===0)document.getElementById('mainContent').innerHTML=rTrip();else switchView(0);updateFloatToday();window.scrollTo({top:0,behavior:'smooth'});}
 
 function openRestaurant(idx){
   const r=restaurants[idx];
